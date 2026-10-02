@@ -1,0 +1,5 @@
+.install-card #install-app{border:1px solid var(--green);border-radius:8px;background:var(--green);color:white;padding:10px 16px;font:inherit;cursor:pointer}
+.install-card #install-app:focus-visible{outline:2px solid var(--green);outline-offset:3px}
+.install-card [hidden]{display:none!important}
+.install-card #install-app-help{margin-bottom:0;overflow-wrap:anywhere}
+@media(display-mode:standalone){body{padding-top:env(safe-area-inset-top);padding-left:env(safe-area-inset-left);padding-right:env(safe-area-inset-right)}html body .floating-tools{bottom:calc(30px + env(safe-area-inset-bottom))}html body .sidebar-bottom{padding-bottom:env(safe-area-inset-bottom)}}

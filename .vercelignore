@@ -1,0 +1,7 @@
+.env*
+.git
+.vercel
+.gitignore
+supabase-notes-setup.sql
+tests
+SUPABASE-SETUP.md
