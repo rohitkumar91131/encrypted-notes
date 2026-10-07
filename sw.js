@@ -1,5 +1,5 @@
 // Bump this version whenever the app shell changes. Each release is cached together.
-const CACHE = 'stillnote-shell-v73';
+const CACHE = 'stillnote-shell-v74';
 const SHELL = ['/', '/encrypted-notes.html', '/editor-features.js', '/editor-features.css', '/smart-search.js', '/smart-search.css',
   '/gallery.js', '/gallery.css', '/gallery-storage.js', '/gallery-downloads.js', '/workspace.js', '/workspace.css', '/scrollbars.css', '/sync-experience.js', '/sync-experience.css', '/workspace-backup.js', '/settings-layout.js', '/settings-layout.css', '/device-lock.js', '/device-lock.css', '/eye-mode.js', '/eye-mode.css', '/pwa.js', '/pwa.css', '/manifest.webmanifest',
   '/public/logo.png', '/public/icon-192.png', '/public/icon-512.png',
