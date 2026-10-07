@@ -1,12 +1,12 @@
 // Bump this version whenever the app shell changes. Each release is cached together.
-const CACHE = 'stillnote-shell-v13';
-const SHELL = ['/', '/encrypted-notes.html', '/editor-features.js', '/editor-features.css',
-  '/workspace.js', '/workspace.css', '/device-lock.js', '/device-lock.css', '/pwa.js', '/pwa.css', '/manifest.webmanifest',
+const CACHE = 'stillnote-shell-v73';
+const SHELL = ['/', '/encrypted-notes.html', '/editor-features.js', '/editor-features.css', '/smart-search.js', '/smart-search.css',
+  '/gallery.js', '/gallery.css', '/gallery-storage.js', '/gallery-downloads.js', '/workspace.js', '/workspace.css', '/scrollbars.css', '/sync-experience.js', '/sync-experience.css', '/workspace-backup.js', '/settings-layout.js', '/settings-layout.css', '/device-lock.js', '/device-lock.css', '/eye-mode.js', '/eye-mode.css', '/pwa.js', '/pwa.css', '/manifest.webmanifest',
   '/public/logo.png', '/public/icon-192.png', '/public/icon-512.png',
-  '/public/icon-180.png', '/public/icon-maskable-512.png', '/public/vendor/supabase.min.js'];
+  '/public/icon-180.png', '/public/icon-maskable-512.png', '/public/vendor/supabase.min.js', '/public/vendor/gsap.min.js'];
 self.addEventListener('install', event => {
-  event.waitUntil(caches.open(CACHE).then(cache => cache.addAll(SHELL.map(url => new Request(url, {cache: 'reload'})))));
-  // Wait for open windows to close before activating a new release: never reload unsaved edits.
+  event.waitUntil(caches.open(CACHE).then(cache => cache.addAll(SHELL.map(url => new Request(url, {cache: 'reload'})))).then(() => self.skipWaiting()));
+  // Activate the complete shell without reloading open editors. Next navigation uses this release.
 });
 self.addEventListener('activate', event => {
   event.waitUntil((async () => {
@@ -25,4 +25,8 @@ self.addEventListener('fetch', event => {
     const cached = await cache.match(navigation ? '/' : url.pathname);
     return cached || fetch(request);
   })());
+});
+
+self.addEventListener('message', event => {
+  if (event.data?.type === 'GET_RELEASE') event.ports[0]?.postMessage({release: CACHE});
 });
