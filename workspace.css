@@ -88,3 +88,5 @@ body.dark .month-card.is-current{background:linear-gradient(145deg,#2b392e,#2026
 }
 
 .note-cover-fallback{display:grid;justify-items:start;gap:8px;padding:18px;border:1px solid var(--line);border-radius:10px;background:var(--wash);color:var(--muted);font:12px/1.5 Inter,sans-serif}.note-cover-fallback a{color:var(--green);font-weight:600}
+
+.note-cover-loading{display:grid;place-items:center;min-height:80px;padding:18px;border:1px solid var(--line);border-radius:10px;background:var(--wash);color:var(--muted);font:12px Inter,sans-serif}
